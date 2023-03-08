@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="survey.css">
     <title>Document</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
             <!-- Input Type Email-->
             <input type="email"
                    id="email"
-                   placeholder="Enter your email" />
+                   placeholder="Enter your email" name="text1" />
         </div>
   
         <div class="form-control">
@@ -110,12 +110,30 @@
         </div>
   
         <!-- Multi-line Text Input Control -->
-        <button type="submit" value="submit">
+        <button type="submit" value="submit" onclick="ValidateEmail(document.form.text1)">
             Submit
         </button>
     </form>
 </body>
-  
+<script>
+function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+alert("Valid email address!");
+document.form.text1.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.form.text1.focus();
+return false;
+}
+}
+</script>
+
 </html>
 
 </body>
